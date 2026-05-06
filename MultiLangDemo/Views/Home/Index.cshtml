@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card border-0 shadow-lg rounded-4">
+            <div class="card-body p-5 text-center">
+                <h1 class="display-3 fw-bold text-primary mb-4">
+                    @Localizer["Welcome"]
+                </h1>
+
+                <p class="lead text-secondary mb-4">
+                    @Localizer["LearnText"]
+                </p>
+
+                <img src="https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
+                     width="180"
+                     class="mb-4" />
+
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-success btn-lg">
+                        @Localizer["Start"]
+                    </button>
+                    <button class="btn btn-outline-primary btn-lg">
+                        @Localizer["LearnMore"]
+                    </button>
+                </div>
+                <div class="alert alert-success mt-5">
+                    <strong>
+                        @ViewBag.ControllerMessage
+                    </strong>
+                </div>
+                <hr class="my-5" />
+
+                <div class="row text-start">
+                    <div class="col-md-4">
+                        <div class="p-4 bg-light rounded-4">
+                            <h4 class="text-primary">
+                                @Localizer["ViewLocalization"]
+                            </h4>
+                            <p>
+                                @Localizer["ViewLocalizationText"]
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-4 bg-light rounded-4">
+                            <h4 class="text-success">
+                                @Localizer["ControllerLocalization"]
+                            </h4>
+                            <p>
+                                @Localizer["ControllerLocalizationText"]
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-4 bg-light rounded-4">
+                            <h4 class="text-danger">
+                                @Localizer["SharedResources"]
+                            </h4>
+                            <p>
+                                @Localizer["SharedResourcesText"]
+                            </p>
+                        </div>
+                    </div>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

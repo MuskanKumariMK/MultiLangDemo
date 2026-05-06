@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MultiLangDemo</title>
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+    <link rel="stylesheet"
+          href="~/MultiLangDemo.styles.css"
+          asp-append-version="true" />
+</head>
+
+<body style="background-color:#f4f7fc;">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold"
+                   asp-controller="Home"
+                   asp-action="Index">
+                     MultiLangDemo
+                </a>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse"
+                     id="navbarContent">
+                    <ul class="navbar-nav me-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Privacy">
+                                Privacy
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="d-flex gap-2">
+
+                        <a class="btn btn-light btn-sm"
+                           href="/?culture=en">
+                            English
+                        </a>
+
+                        @* <a class="btn btn-warning btn-sm"
+                           href="/?culture=fr">
+                            French
+                        </a> *@
+
+                        <a class="btn btn-danger btn-sm"
+                           href="/?culture=hi">
+                            Hindi
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+   
+    <div class="container mt-5">
+        <main role="main">
+            @RenderBody()
+        </main>
+
+    </div>    
+
+    <footer class="mt-5 py-4 bg-white border-top">
+        <div class="container text-center text-muted">
+            © 2026 - MultiLangDemo
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>
