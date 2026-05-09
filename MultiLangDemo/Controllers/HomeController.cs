@@ -24,6 +24,21 @@ namespace MultiLangDemo.Controllers
 
             return View();
         }
+        public IActionResult Login()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(UserModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            return RedirectToAction("Index");
+        }
         public IActionResult Privacy()
         {
             return View();

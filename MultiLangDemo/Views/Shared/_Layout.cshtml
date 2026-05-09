@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using MultiLangDemo
+
+@inject IHtmlLocalizer<SharedResource>  SharedLocalizer
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -39,15 +43,21 @@
                             <a class="nav-link"
                                asp-controller="Home"
                                asp-action="Index">
-                                Home
+                                @SharedLocalizer["Home"]
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Login">
+                                @SharedLocalizer["Login"]
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-controller="Home"
                                asp-action="Privacy">
-                                Privacy
+                                @SharedLocalizer["Privacy"]
                             </a>
                         </li>
 
@@ -56,7 +66,7 @@
                     <div class="d-flex gap-2">
 
                         <a class="btn btn-light btn-sm"
-                           href="/?culture=en">
+                           href="@($"{Context.Request.Path}?culture=en")">
                             English
                         </a>
 
@@ -66,7 +76,7 @@
                         </a> *@
 
                         <a class="btn btn-danger btn-sm"
-                           href="/?culture=hi">
+                           href="@($"{Context.Request.Path}?culture=hi")">
                             Hindi
                         </a>
 
