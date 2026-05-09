@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using MultiLangDemo
+
+@inject IHtmlLocalizer<SharedResource>  SharedLocalizer
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -39,7 +43,7 @@
                             <a class="nav-link"
                                asp-controller="Home"
                                asp-action="Index">
-                                Home
+                                @SharedLocalizer["Home"]
                             </a>
                         </li>
 
@@ -47,7 +51,7 @@
                             <a class="nav-link"
                                asp-controller="Home"
                                asp-action="Privacy">
-                                Privacy
+                                @SharedLocalizer["Privacy"]
                             </a>
                         </li>
 
