@@ -25,8 +25,7 @@
                 <form asp-action="Login" method="post" asp-route-culture="@Context.Request.Query["culture"]">
 
                     <div class="mb-4 text-start">
-                        <label class="form-label fw-semibold">
-                            @Localizer["Email"]
+                        <label asp-for="Email" class="form-label fw-semibold">                            
                         </label>
                         <input type="email"
                                class="form-control form-control-lg"
@@ -39,8 +38,8 @@
                     </div>
 
                     <div class="mb-4 text-start">
-                        <label class="form-label fw-semibold">
-                            @Localizer["Password"]
+                        <label asp-for="Password" class="form-label fw-semibold">
+                         
                         </label>
                         <input type="password"
                                class="form-control form-control-lg"
@@ -53,8 +52,8 @@
 
                     <div class="form-check mb-4 text-start">
                         <input class="form-check-input" type="checkbox" />
-                        <label class="form-check-label">
-                            @Localizer["RememberMe"]
+                        <label asp-for="RememberMe" class="form-check-label">
+                            
                         </label>
                     </div>
 

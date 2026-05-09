@@ -150,4 +150,13 @@
   <data name="PasswordLength" xml:space="preserve">
     <value>Password must be at least 6 characters</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
 </root>
