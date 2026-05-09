@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Localization;
+using MultiLangDemo;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +15,16 @@ builder.Services.AddLocalization(options =>
 // Add MVC services and enable view localization
 builder.Services
     .AddControllersWithViews()
-    .AddViewLocalization();
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider =
+            (type, factory) =>
+            {
+                return factory.Create(
+                    typeof(SharedResource));
+            };
+    });
 
 // Define the supported cultures for localization
 var supportedCultures = new[]
