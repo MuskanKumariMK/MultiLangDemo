@@ -64,16 +64,25 @@ namespace MultiLangDemo.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="culture">This receives selected langauge ex: en , hi from navbar button asp-route-culture= hi </param>
+        /// <param name="returnUrl">store the current pages urlinsteda of redirecting home page it stayt jin that pages </param>
+        /// <returns></returns>
         public IActionResult ChangeLanguage(string culture, string returnUrl)
         {
+            //  Response.Cookies.Append : Create browser cookie
+            // CookieRequestCultureProvider.DefaultCookieName : This is the default name for the cookie that stores the user's culture preference.
+            // CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)) : This method generates the value for the cookie based on the specified culture. It creates a string that represents the culture information in a format that can be stored in a cookie.
             Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-
-             new CookieOptions
-             {
-                 Expires = DateTimeOffset.UtcNow.AddYears(1)
-             });
-
+                // This sets the cookie to expire in one year, ensuring that the user's language preference is remembered for an extended period.
+                new CookieOptions
+                {
+                    Expires = DateTimeOffset.UtcNow.AddYears(1)
+                });
+            // LocalRedirect : This method is used to redirect the user to a local URL, which is typically the URL of the page they were on before changing the language. It ensures that the redirection is safe and prevents open redirect vulnerabilities.
             return LocalRedirect(returnUrl);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
