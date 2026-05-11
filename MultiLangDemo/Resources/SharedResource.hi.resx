@@ -159,4 +159,16 @@
   <data name="RememberMe" xml:space="preserve">
     <value>मुझे याद रखें</value>
   </data>
+  <data name="AccountStatus" xml:space="preserve">
+    <value>अकाउंट स्थिति</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>सक्रिय</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>लंबित</value>
+  </data>
+  <data name="Blocked" xml:space="preserve">
+    <value>ब्लॉक</value>
+  </data>
 </root>

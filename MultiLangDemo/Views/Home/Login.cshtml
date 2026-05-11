@@ -56,6 +56,15 @@
                             
                         </label>
                     </div>
+                    <div class="mb-4 text-start">
+                        <label asp-for="Status" class="form-label fw-semibold"></label>
+                        <select asp-for="Status" class="form-select form-select-lg">
+                            <option value="0">@SharedLocalizer["Active"]</option>
+                            <option value="1">@SharedLocalizer["Pending"]</option>
+                            <option value="2">@SharedLocalizer["Blocked"]</option>
+                        </select>
+
+                    </div>
 
                     <div class="d-grid">
                         <button class="btn btn-primary btn-lg">
