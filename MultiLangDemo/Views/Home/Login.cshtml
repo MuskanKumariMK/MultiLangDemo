@@ -67,13 +67,22 @@
                     </div>
 
                     <div class="d-grid">
-                        <button class="btn btn-primary btn-lg">
+                        <button id="loginBtn" class="btn btn-primary btn-lg">
                             @Localizer["LoginButton"]
                         </button>
                     </div>
                 </form>
             </div>
+            @if (ViewBag.LoginMessage != null)
+            {
+                <div class="alert @(ViewBag.IsSuccess
+                             ? "alert-success"
+                             : "alert-danger") mt-4">
 
+                @ViewBag.LoginMessage
+
+                </div>
+                        }
             <div class="card-footer bg-light text-center p-3">
                 <small class="text-muted">
                     @Localizer["FooterText"]
@@ -88,5 +97,7 @@
         await Html.RenderPartialAsync(
             "_ValidationScriptsPartial");
     }
+ 
 
+    </script>
 }

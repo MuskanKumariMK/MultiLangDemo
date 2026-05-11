@@ -37,7 +37,27 @@ namespace MultiLangDemo.Controllers
                 return View(model);
             }
 
-            return RedirectToAction("Index");
+            if (model.Email == "abc@gmail.com"
+       && model.Password == "admin@123")
+            {
+                ViewBag.LoginMessage =
+                    _localizer["LoginSuccess"];
+
+                ViewBag.IsSuccess = true;
+            }
+            else
+            {
+                ViewBag.LoginMessage =
+                    _localizer["LoginFailed"];
+
+                ViewBag.IsSuccess = false;
+            }
+
+            return View(model);
+        }
+        public IActionResult ContactSupport()
+        {
+            return View();
         }
         public IActionResult Privacy()
         {

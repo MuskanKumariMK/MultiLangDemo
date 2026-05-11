@@ -117,37 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Login" xml:space="preserve">
-    <value>लॉगिन</value>
-  </data>
-  <data name="LoginSubtitle" xml:space="preserve">
-    <value>अपने बहुभाषी खाते तक पहुँचें</value>
-  </data>
   <data name="Email" xml:space="preserve">
-    <value>ईमेल पता</value>
+    <value>Email Address</value>
   </data>
   <data name="EmailPlaceholder" xml:space="preserve">
-    <value>अपना ईमेल दर्ज करें</value>
+    <value>Enter your email</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>पासवर्ड</value>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
   </data>
-  <data name="PasswordPlaceholder" xml:space="preserve">
-    <value>अपना पासवर्ड दर्ज करें</value>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
   </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>मुझे याद रखें</value>
+  <data name="MessagePlaceholder" xml:space="preserve">
+    <value>Write your message</value>
   </data>
-  <data name="LoginButton" xml:space="preserve">
-    <value>लॉगिन करें</value>
+  <data name="NamePlaceholder" xml:space="preserve">
+    <value>Enter your full name</value>
   </data>
-  <data name="FooterText" xml:space="preserve">
-    <value>वैलिडेशन लोकलाइजेशन डेमो</value>
+  <data name="RequiredEmail" xml:space="preserve">
+    <value>Please enter your email</value>
   </data>
-  <data name="LoginSuccess" xml:space="preserve">
-    <value>लॉगिन सफल रहा</value>
+  <data name="RequiredMessage" xml:space="preserve">
+    <value>Please enter your message</value>
   </data>
-  <data name="LoginFailed" xml:space="preserve">
-    <value>गलत क्रेडेंशियल</value>
+  <data name="RequiredName" xml:space="preserve">
+    <value>Please enter your name</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>Message sent successfully</value>
+  </data>
+  <data name="SupportSubtitle" xml:space="preserve">
+    <value>Our support team is here to help you</value>
+  </data>
+  <data name="SupportTitle" xml:space="preserve">
+    <value>Contact Support</value>
   </data>
 </root>

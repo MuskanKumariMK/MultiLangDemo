@@ -171,4 +171,7 @@
   <data name="Blocked" xml:space="preserve">
     <value>Blocked</value>
   </data>
+  <data name="SupportTitle" xml:space="preserve">
+    <value>  Contact Support</value>
+  </data>
 </root>

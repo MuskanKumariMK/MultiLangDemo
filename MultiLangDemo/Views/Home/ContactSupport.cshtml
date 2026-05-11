@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Contact Support";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-7">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="bg-primary text-white text-center p-5">
+                <h1 class="fw-bold">@Localizer["SupportTitle"]</h1>
+                <p class="mb-0 mt-2">@Localizer["SupportSubtitle"]</p>
+            </div>
+
+            <div class="card-body p-5">
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">@Localizer["FullName"]</label>
+                    <input id="name" class="form-control form-control-lg" placeholder="@Localizer["NamePlaceholder"]" />
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">@Localizer["Email"]</label>
+                    <input id="email" class="form-control form-control-lg" placeholder="@Localizer["EmailPlaceholder"]" />
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">@Localizer["Message"]</label>
+                    <textarea id="message"  rows="5" class="form-control" placeholder="@Localizer["MessagePlaceholder"]">
+                    </textarea>
+                </div>
+                <div class="d-grid">
+                    <button id="sendBtn" class="btn btn-primary btn-lg">@Localizer["SendMessage"]</button>
+                </div>    
+
+                <div id="alertBox"
+                     class="mt-4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+<script>
+        const requiredName = '@Localizer["RequiredName"]';
+        const requiredEmail  = '@Localizer["RequiredEmail"]';
+        const requiredMessage  = '@Localizer["RequiredMessage"]';
+        const successMessage  = '@Localizer["SuccessMessage"]';
+        document.getElementById("sendBtn").addEventListener("click", function(){
+            let name  = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let error = ""; 
+            if(name === ""){
+                error = requiredName;
+            }else if(email === ""){
+                error = requiredEmail;
+            }else if(message === ""){
+                error = requiredMessage;
+            }
+
+            if(error !== ""){
+                document.getElementById("alertBox").innerHTML =  
+                `<div class="alert alert-danger">
+                        ${error}
+                    </div>`;
+            }else{
+                document.getElementById("alertBox").innerHTML =  
+                ` <div class="alert alert-success">
+                        ${successMessage}
+                  </div>`;
+            }
+        });
+
+</script>
+}
