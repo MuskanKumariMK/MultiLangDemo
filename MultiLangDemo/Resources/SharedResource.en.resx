@@ -174,4 +174,7 @@
   <data name="SupportTitle" xml:space="preserve">
     <value>  Contact Support</value>
   </data>
+  <data name="ApiLogin" xml:space="preserve">
+    <value>ApiLogin</value>
+  </data>
 </root>

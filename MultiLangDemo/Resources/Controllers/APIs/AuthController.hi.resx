@@ -117,64 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Delete" xml:space="preserve">
-    <value>हटाएं</value>
+  <data name="LoginFailed" xml:space="preserve">
+    <value>गलत क्रेडेंशियल</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>होम</value>
+  <data name="LoginSuccess" xml:space="preserve">
+    <value>लॉगिन सफल रहा</value>
   </data>
-  <data name="Language" xml:space="preserve">
-    <value>भाषा</value>
-  </data>
-  <data name="Privacy" xml:space="preserve">
-    <value>गोपनीयता</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>सेव करें</value>
-  </data>
-  <data name="NameRequired" xml:space="preserve">
-    <value>नाम आवश्यक है</value>
-  </data>
-  <data name="EmailRequired" xml:space="preserve">
-    <value>ईमेल आवश्यक है</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>लॉगिन</value>
-  </data>
-  <data name="PasswordRequired" xml:space="preserve">
-    <value>पासवर्ड आवश्यक है</value>
-  </data>
-  <data name="ValidEmail" xml:space="preserve">
-    <value>कृपया सही ईमेल दर्ज करें</value>
-  </data>
-  <data name="PasswordLength" xml:space="preserve">
-    <value>पासवर्ड कम से कम 6 अक्षरों का होना चाहिए</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>ईमेल पता</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>पासवर्ड</value>
-  </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>मुझे याद रखें</value>
-  </data>
-  <data name="AccountStatus" xml:space="preserve">
-    <value>अकाउंट स्थिति</value>
-  </data>
-  <data name="Active" xml:space="preserve">
-    <value>सक्रिय</value>
-  </data>
-  <data name="Pending" xml:space="preserve">
-    <value>लंबित</value>
-  </data>
-  <data name="Blocked" xml:space="preserve">
-    <value>ब्लॉक</value>
-  </data>
-  <data name="SupportTitle" xml:space="preserve">
-    <value>सहायता से संपर्क करें</value>
-  </data>
-  <data name="ApiLogin" xml:space="preserve">
-    <value>ApiLogin</value>
+  <data name="ValidationFailed" xml:space="preserve">
+    <value>सत्यापन विफल</value>
   </data>
 </root>

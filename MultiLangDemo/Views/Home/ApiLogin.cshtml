@@ -1,0 +1,123 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using MultiLangDemo
+@model MultiLangDemo.Models.UserModel
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<SharedResource> SharedLocalizer
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="bg-primary text-white text-center p-4">
+                <h2 class="fw-bold mb-2">
+                    @Localizer["Login"]
+                </h2>
+
+                <p class="mb-0">
+                    @Localizer["LoginSubtitle"]
+                </p>
+            </div>
+
+            <div class="card-body p-5">
+                <form id="loginForm">
+                    <div class="mb-4 text-start">
+                        <label asp-for="Email" class="form-label fw-semibold">
+                        </label>
+                        <input type="email" id="email" class="form-control form-control-lg"
+                               placeholder="@Localizer["EmailPlaceholder"]" />                     
+
+                    </div>
+
+                    <div class="mb-4 text-start">
+                        <label asp-for="Password" class="form-label fw-semibold">
+
+                        </label>
+                        <input type="password" id="password"
+                               class="form-control form-control-lg"
+                               placeholder="@Localizer["PasswordPlaceholder"]" />                       
+                    </div>
+
+                    <div class="form-check mb-4 text-start">
+                        <input class="form-check-input" type="checkbox" />
+                        <label asp-for="RememberMe" class="form-check-label">
+                        </label>
+                    </div>
+                    <div class="mb-4 text-start">
+                        <label asp-for="Status" class="form-label fw-semibold"></label>
+                        <select asp-for="Status" class="form-select form-select-lg">
+                            <option value="0">@SharedLocalizer["Active"]</option>
+                            <option value="1">@SharedLocalizer["Pending"]</option>
+                            <option value="2">@SharedLocalizer["Blocked"]</option>
+                        </select>
+
+                    </div>
+
+                    <div class="d-grid">
+                        <button id="loginBtn" class="btn btn-primary btn-lg">
+                            @Localizer["LoginButton"]
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="apiMessage"
+                 class="mt-4">
+            </div>
+            <div class="card-footer bg-light text-center p-3">
+                <small class="text-muted">
+                    @Localizer["FooterText"]
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+    <script>
+        document.getElementById("loginBtn").addEventListener("click", async function (e) {
+                e.preventDefault();               
+
+                let email = document.getElementById("email").value;
+                let password = document.getElementById("password").value;
+
+                let response = await fetch('/api/Auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                });
+
+                let data =  await response.json();
+                if(data.errors){
+                     let validationMessages = "";
+                     for (const field in data.errors){
+                            data.errors[field].forEach(error => { 
+                                validationMessages += `<li>${error}</li>`;
+                    });
+                 }
+                 document.getElementById("apiMessage").innerHTML = `
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            ${validationMessages}
+                        </ul>
+                    </div>`;
+                return;
+                }
+
+                document.getElementById("apiMessage").innerHTML = `
+                    <div class="alert ${data.success ? 'alert-success' : 'alert-danger'}">
+                        ${data.message}
+                    </div>`;
+            });
+    </script>
+}

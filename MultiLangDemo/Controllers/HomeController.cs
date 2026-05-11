@@ -30,6 +30,11 @@ namespace MultiLangDemo.Controllers
 
             return View();
         }
+        public IActionResult ApiLogin()
+        {
+
+            return View();
+        }
         [HttpPost]
         public IActionResult Login(UserModel model)
         {
