@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using MultiLangDemo.Models;
@@ -63,7 +64,18 @@ namespace MultiLangDemo.Controllers
         {
             return View();
         }
+        public IActionResult ChangeLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
 
+             new CookieOptions
+             {
+                 Expires = DateTimeOffset.UtcNow.AddYears(1)
+             });
+
+            return LocalRedirect(returnUrl);
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

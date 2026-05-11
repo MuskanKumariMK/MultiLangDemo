@@ -71,22 +71,21 @@
                     </ul>
 
                     <div class="d-flex gap-2">
-
                         <a class="btn btn-light btn-sm"
-                           href="@($"{Context.Request.Path}?culture=en")">
+                           asp-controller="Home"
+                           asp-action="ChangeLanguage"
+                           asp-route-culture="en"
+                           asp-route-returnUrl="@Context.Request.Path">
                             English
                         </a>
 
-                        @* <a class="btn btn-warning btn-sm"
-                           href="/?culture=fr">
-                            French
-                        </a> *@
-
                         <a class="btn btn-danger btn-sm"
-                           href="@($"{Context.Request.Path}?culture=hi")">
+                           asp-controller="Home"
+                           asp-action="ChangeLanguage"
+                           asp-route-culture="hi"
+                           asp-route-returnUrl="@Context.Request.Path">
                             Hindi
                         </a>
-
                     </div>
                 </div>
             </div>
