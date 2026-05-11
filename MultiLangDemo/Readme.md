@@ -32,3 +32,39 @@ Notes:
   - Update your model attributes to use `ErrorMessageResourceName` and `ErrorMessageResourceType` or configure `DataAnnotationLocalizerProvider`.
   - Ensure `RequestLocalization` middleware is configured in `Program.cs` and add `AddLocalization()` / `AddViewLocalization()` in `Program.cs`.
 
+  Next Day Topics 
+- Layout localization (navbar/footer)
+- Partial view localization
+- Middleware localization
+- DataAnnotations localization (validation messages)
+
+After that Next day Plan 
+- Route localization
+- Session localization
+- Json localization
+
+After that Next day Plan
+- Database localization
+- Dynamic runtime localization
+- AI localization
+Topics already covered:
+-  View Localization
+- Controller Localization
+- Shared Resource Localization
+- Validation Localization
+- Model Localization
+- Enum Localization
+- JavaScript Localization
+- API Localization
+- Cookie Localization
+- Query String Localization
+Topics to be Covered in Future
+1. Layout Localization
+2. Partial View Localization
+3. Middleware Localization
+4. DataAnnotations Localization
+5. Route Localization
+6. JSON Localization
+7. Database Localization
+8. Dynamic Runtime Localization
+9. AI Localization
