@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<div class="card border-0 shadow-sm mt-4">
+
+    <div class="card-body">
+
+        <div class="d-flex align-items-center">
+
+            <div class="me-3">
+
+                <img src="https://cdn-icons-png.flaticon.com/512/1827/1827314.png"
+                     width="60" />
+
+            </div>
+
+            <div>
+
+                <h5 class="fw-bold text-success">
+
+                    @Localizer["NotificationTitle"]
+
+                </h5>
+
+                <p class="mb-0 text-muted">
+
+                    @Localizer["NotificationDescription"]
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
