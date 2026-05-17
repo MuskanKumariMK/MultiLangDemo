@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MultiLangDemo</title>
+    <title>@ViewData["Title"] - @SharedLocalizer["ApplicationName"]</title>
     <link rel="stylesheet"
           href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet"
@@ -25,7 +25,7 @@
                 <a class="navbar-brand fw-bold"
                    asp-controller="Home"
                    asp-action="Index">
-                     MultiLangDemo
+                    @SharedLocalizer["ApplicationName"]
                 </a>
 
                 <button class="navbar-toggler"
@@ -78,12 +78,13 @@
                     </ul>
 
                     <div class="d-flex gap-2">
+
                         <a class="btn btn-light btn-sm"
                            asp-controller="Home"
                            asp-action="ChangeLanguage"
                            asp-route-culture="en"
                            asp-route-returnUrl="@Context.Request.Path">
-                            English
+                            @SharedLocalizer["English"]
                         </a>
 
                         <a class="btn btn-danger btn-sm"
@@ -91,7 +92,7 @@
                            asp-action="ChangeLanguage"
                            asp-route-culture="hi"
                            asp-route-returnUrl="@Context.Request.Path">
-                            Hindi
+                            @SharedLocalizer["Hindi"]
                         </a>
                     </div>
                 </div>
@@ -108,7 +109,10 @@
 
     <footer class="mt-5 py-4 bg-white border-top">
         <div class="container text-center text-muted">
-            © 2026 - MultiLangDemo
+            © 2026 -   @SharedLocalizer["ApplicationName"]
+            |
+
+            @SharedLocalizer["FooterDescription"]
         </div>
     </footer>
 

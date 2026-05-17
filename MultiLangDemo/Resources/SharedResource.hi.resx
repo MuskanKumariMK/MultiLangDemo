@@ -177,4 +177,19 @@
   <data name="ApiLogin" xml:space="preserve">
     <value>ApiLogin</value>
   </data>
+	<data name="ApplicationName" xml:space="preserve">
+  <value>मल्टीलैंग डेमो</value>
+</data>
+
+	<data name="English" xml:space="preserve">
+  <value>अंग्रेज़ी</value>
+</data>
+
+	<data name="Hindi" xml:space="preserve">
+  <value>हिंदी</value>
+</data>
+
+	<data name="FooterDescription" xml:space="preserve">
+  <value>एंटरप्राइज़ लोकलाइजेशन डेमो</value>
+</data>
 </root>
