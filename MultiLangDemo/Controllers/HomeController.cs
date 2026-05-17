@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using MultiLangDemo.Data;
 using MultiLangDemo.Models;
 using MultiLangDemo.Services;
 using System.Diagnostics;
@@ -12,12 +13,14 @@ namespace MultiLangDemo.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly DatabaseLocalizer _databaseLocalizer;
         private readonly IStringLocalizer<HomeController> _localizer;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, DatabaseLocalizer databaseLocalizer, IStringLocalizer<HomeController> localizer)
+        public HomeController(ILogger<HomeController> logger, DatabaseLocalizer databaseLocalizer, IStringLocalizer<HomeController> localizer, ApplicationDbContext context)
         {
             _logger = logger;
             _databaseLocalizer = databaseLocalizer;
             _localizer = localizer;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -80,6 +83,24 @@ namespace MultiLangDemo.Controllers
             ViewBag.Welcome = _databaseLocalizer.Get("Welcome");
             ViewBag.Description = _databaseLocalizer.Get("Description");
             return View();
+        }
+        public IActionResult ManageTranslations()
+        {
+            var translations = _context.LocalizationResources.ToList();
+            return View(translations);
+        }
+        [HttpPost]
+        public IActionResult UpdateTranslation(LocalizationResource model)
+        {
+            var translation = _context.LocalizationResources.FirstOrDefault(x => x.Id == model.Id);
+
+            if (translation != null)
+            {
+                translation.Value = model.Value;
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("ManageTranslations");
         }
         /// <summary>
         /// 
