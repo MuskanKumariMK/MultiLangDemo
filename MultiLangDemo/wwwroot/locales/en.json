@@ -1,0 +1,7 @@
+{
+  "title": "JSON Localization Demo",
+  "subtitle": "Dynamic frontend localization using JSON files.",
+  "welcome": "Welcome to MultiLangDemo",
+  "description": "This content changes without page reload.",
+  "button": "Start Learning"
+}

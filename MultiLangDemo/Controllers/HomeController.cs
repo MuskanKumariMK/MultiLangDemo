@@ -69,6 +69,10 @@ namespace MultiLangDemo.Controllers
         {
             return View();
         }
+        public IActionResult JsonLocalization()
+        {
+            return View();
+        }
         /// <summary>
         /// 
         /// </summary>

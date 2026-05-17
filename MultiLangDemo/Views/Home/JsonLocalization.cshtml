@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] =  "JSON Localization";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-5 text-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/136/136525.png"
+                     width="100"
+                     class="mb-4" />
+                <h1 id="title" class="fw-bold text-primary"> </h1>
+
+                <p id="subtitle"  class="lead text-muted">  </p>
+
+                <hr class="my-4" />
+
+                <h3 id="welcome" class="mb-3"> </h3>
+
+                <p id="description" class="text-secondary"> </p>
+
+                <button id="learnBtn" class="btn btn-success btn-lg mt-3"> </button>
+
+                <div class="d-flex justify-content-center gap-3 mt-5">
+                    <button class="btn btn-outline-primary" onclick="loadLanguage('en')">
+                        English
+                    </button>
+
+                    <button class="btn btn-outline-danger" onclick="loadLanguage('hi')">
+                        Hindi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+
+        async function loadLanguage(culture)
+        {
+            let response =  await fetch(`/locales/${culture}.json`);
+
+            let data =  await response.json();
+
+            document.getElementById("title")
+                .innerText = data.title;
+
+            document.getElementById("subtitle")
+                .innerText = data.subtitle;
+
+            document.getElementById("welcome")
+                .innerText = data.welcome;
+
+            document.getElementById("description")
+                .innerText = data.description;
+
+            document.getElementById("learnBtn")
+                .innerText = data.button;
+        }
+
+        loadLanguage('en');
+
+    </script>
+}

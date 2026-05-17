@@ -61,8 +61,8 @@ Topics already covered:
 - Layout Localization
 - Partial View Localization
 - DataAnnotations Localization
+-  Route Localization
 Topics to be Covered in Future
-5. Route Localization
 6. JSON Localization
 7. Database Localization
 8. Dynamic Runtime Localization
