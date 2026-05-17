@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @using MultiLangDemo
-
+@using System.Globalization
 @inject IHtmlLocalizer<SharedResource>  SharedLocalizer
 <!DOCTYPE html>
 <html lang="en">
@@ -42,56 +42,57 @@
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-controller="Home"
-                               asp-action="Index">
+                               asp-action="Index"
+                               asp-route-culture=@CultureInfo.CurrentUICulture.Name">
                                 @SharedLocalizer["Home"]
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-controller="Home"
-                               asp-action="Login">
+                               asp-action="Login"
+                               asp-route-culture="@CultureInfo.CurrentUICulture.Name">
                                 @SharedLocalizer["Login"]
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-controller="Home"
-                               asp-action="Privacy">
+                               asp-action="Privacy"
+                               asp-route-culture="@CultureInfo.CurrentUICulture.Name">
                                 @SharedLocalizer["Privacy"]
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-controller="Home"
-                               asp-action="ContactSupport">
+                               asp-action="ContactSupport" asp-route-culture="@CultureInfo.CurrentUICulture.Name">
+                                
                                 @SharedLocalizer["SupportTitle"]
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-controller="Home"
-                               asp-action="ApiLogin">
+                               asp-action="ApiLogin"
+                               asp-route-culture="@CultureInfo.CurrentUICulture.Name">
                                 @SharedLocalizer["ApiLogin"]
                             </a>
                         </li>
 
                     </ul>
-
                     <div class="d-flex gap-2">
-
                         <a class="btn btn-light btn-sm"
-                           asp-controller="Home"
-                           asp-action="ChangeLanguage"
                            asp-route-culture="en"
-                           asp-route-returnUrl="@Context.Request.Path">
+                           asp-route-controller="@ViewContext.RouteData.Values["controller"]"
+                           asp-route-action="@ViewContext.RouteData.Values["action"]">
                             @SharedLocalizer["English"]
                         </a>
 
                         <a class="btn btn-danger btn-sm"
-                           asp-controller="Home"
-                           asp-action="ChangeLanguage"
                            asp-route-culture="hi"
-                           asp-route-returnUrl="@Context.Request.Path">
+                           asp-route-controller="@ViewContext.RouteData.Values["controller"]"
+                           asp-route-action="@ViewContext.RouteData.Values["action"]">
                             @SharedLocalizer["Hindi"]
                         </a>
                     </div>

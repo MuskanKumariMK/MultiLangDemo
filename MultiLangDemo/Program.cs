@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Localization.Routing;
 using MultiLangDemo;
 using System.Globalization;
 
@@ -38,25 +39,22 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.DefaultRequestCulture = new RequestCulture("en");
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
+
     options.RequestCultureProviders =
-      new List<IRequestCultureProvider>
-      {
-            new CookieRequestCultureProvider()
-      };
+    new List<IRequestCultureProvider>
+    {
+        new RouteDataRequestCultureProvider(),
+        new CookieRequestCultureProvider()
+    };
 });
 
 
 var app = builder.Build();
 
-var localizationOptions = app.Services.GetRequiredService<Microsoft.Extensions.Options.IOptions<RequestLocalizationOptions>>();
-// Use the configured request localization options
-app.UseRequestLocalization(
-    localizationOptions.Value);
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -65,10 +63,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+var localizationOptions = app.Services.GetRequiredService<Microsoft.Extensions.Options.IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(localizationOptions.Value);
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
