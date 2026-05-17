@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using MultiLangDemo.Models;
+using MultiLangDemo.Services;
 using System.Diagnostics;
 
 namespace MultiLangDemo.Controllers
@@ -9,12 +10,13 @@ namespace MultiLangDemo.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private readonly DatabaseLocalizer _databaseLocalizer;
         private readonly IStringLocalizer<HomeController> _localizer;
 
-        public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer)
+        public HomeController(ILogger<HomeController> logger, DatabaseLocalizer databaseLocalizer, IStringLocalizer<HomeController> localizer)
         {
             _logger = logger;
+            _databaseLocalizer = databaseLocalizer;
             _localizer = localizer;
         }
 
@@ -71,6 +73,12 @@ namespace MultiLangDemo.Controllers
         }
         public IActionResult JsonLocalization()
         {
+            return View();
+        }
+        public IActionResult DatabaseLocalization()
+        {
+            ViewBag.Welcome = _databaseLocalizer.Get("Welcome");
+            ViewBag.Description = _databaseLocalizer.Get("Description");
             return View();
         }
         /// <summary>

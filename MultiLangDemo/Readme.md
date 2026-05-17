@@ -62,9 +62,9 @@ Topics already covered:
 - Partial View Localization
 - DataAnnotations Localization
 -  Route Localization
+-  JSON Localization
+-  Database Localization
 Topics to be Covered in Future
-6. JSON Localization
-7. Database Localization
 8. Dynamic Runtime Localization
 9. AI Localization
 

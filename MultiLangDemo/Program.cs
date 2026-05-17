@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Localization.Routing;
+using Microsoft.EntityFrameworkCore;
 using MultiLangDemo;
+using MultiLangDemo.Data;
+using MultiLangDemo.Services;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -47,8 +50,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
         new CookieRequestCultureProvider()
     };
 });
-
-
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<DatabaseLocalizer>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
